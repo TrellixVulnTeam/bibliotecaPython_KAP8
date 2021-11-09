@@ -3,16 +3,23 @@
 {% block title %} Mi superbiblio {% endblock %}
 
 {% block content %} 
-    <h1>Mi catalogo</h1>
-    {{autor}}
-    <h2 class="mt-4">Ultimos libros</h2>
-
+    <img src="http://assets.stickpng.com/thumbs/580b585b2edbce24c47b276e.png" style="width: 200px; height: 200px;">
+    <h2 class="mt-4">Numero de libros registrados</h2>
+    <p>
+        {% for libro in libros %} 
+            {{forloop.counter}}
+        {% endfor %} 
+    </p>
+    <h2 class="mt-4">Numero de autores registrados</h2>
+    <p>
+        {% for autor in autores %} 
+            {{forloop.counter}}
+        {% endfor %} 
+    </p>
+    <h2 class="mt-4">Ultimos libros añadidos</h2>
     <ul>
         {% for libro in libros %} 
-            <li>{{libro.title}} 
-                {%if libro.author %}
-                    ({{libro.author.last_name}})
-                {% endif %}
+            <li>{{libro.title}}
             </li>
         {% endfor %} 
     </ul>

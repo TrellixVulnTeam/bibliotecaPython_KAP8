@@ -1,0 +1,15 @@
+{% extends "base.html" %} 
+
+{% block title %} Mi superbiblio {% endblock %}
+
+{% block content %} 
+    <h1>Autores</h1>
+    <h2 class="mt-4">Todos los autores</h2>
+
+    <ul>
+        {% for autor in autores %} 
+            <li>{{autor.first_name}}{{autor.last_name}} 
+            </li>
+        {% endfor %} 
+    </ul>
+{% endblock %} 

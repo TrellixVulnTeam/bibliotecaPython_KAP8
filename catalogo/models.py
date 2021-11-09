@@ -9,7 +9,7 @@ class Genre(models.Model):
 
     class Meta:
         verbose_name = 'Genero'
-        verbose_name_plural = 'Generos'
+        verbose_name_plural = 'Generos' 
 
 class Author(models.Model):
     first_name = models.CharField("Nombre", max_length=100)
@@ -24,6 +24,16 @@ class Author(models.Model):
         verbose_name = 'Autor'
         verbose_name_plural = 'Autores'
 
+class Language(models.Model):
+    name = models.CharField("Idioma", max_length=100)
+    
+    def __str__(self): 
+        return self.name
+
+    class Meta:
+        verbose_name = 'Idioma'
+        verbose_name_plural = 'Idiomas'
+
 class Book(models.Model):
     '''Libro de aplicacion de biblioteca...'''
     title = models.CharField(max_length=250)
@@ -33,6 +43,7 @@ class Book(models.Model):
     #relaciones de autor y genero
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
     genre = models.ManyToManyField(Genre)
+    language = models.ForeignKey(Language, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.title
