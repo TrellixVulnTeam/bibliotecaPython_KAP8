@@ -37,7 +37,7 @@
           </li>
           <li>
             <!-- Formulario de busqueda -->
-            <form class="form-inline mt-2 mt-md-0" action="/buscar" method="get"> 
+            <form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get"> 
               <input name="q" class="form-control mr-sm-2" type="text" placeholder="Búsqueda" aria-label="Search">
             </form>
           </li>

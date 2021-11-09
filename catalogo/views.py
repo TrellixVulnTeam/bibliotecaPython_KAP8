@@ -60,7 +60,7 @@ class LibrosListView(generic.ListView):
 class SearchResultsListView(generic.ListView):
     model = Book
     context_object_name = 'book_list'
-    template_name = 'libros/search_results.html'
+    template_name = 'search_results.html'
     def get_queryset(self):
         query = self.request.GET.get('q')
         return Book.objects.filter(title__icontains=query)
