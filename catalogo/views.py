@@ -2,6 +2,7 @@ from django.shortcuts import render
 from catalogo.models import Book
 from catalogo.models import Author
 from django.views import generic
+from catalogo.forms import AuthorForm
 # Create your views here.
 def indice(request):
     libros = Book.objects.all()
@@ -51,6 +52,10 @@ def todos_libros(request):
     datos = {'libros': libros}
     
     return render(request, 'todos_libros.html', context=datos)
+
+def crear_autor(request):
+    datos={'form': AuthorForm}
+    return render(request, 'crear_autor.html', context=datos)
 
 class LibrosListView(generic.ListView):
     '''Vista generica para el listado de libros'''
